@@ -1,0 +1,16 @@
+server:
+ port: 8191
+## for using resource/config directory
+#spring:
+# profiles:
+#  active: native
+spring:
+ cloud:
+  config:
+   server:
+    git:
+     uri: https://github.com/hdilhara/cloud-config-store
+     search-paths:
+      - 'ems-config/'
+     #username: root
+     #passphrase: 12345

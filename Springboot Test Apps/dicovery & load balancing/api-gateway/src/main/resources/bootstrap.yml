@@ -1,0 +1,49 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: service1
+        uri: https://www.youtube.com/
+        predicates:
+        - Path=/service/**
+#      - id: service2
+#          uri: lb://SERVICE2
+#          predicates:
+#            - Path=/service2/**
+#spring:
+#  application:
+#    name: GATEWAY-SERVICE
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: service
+#          uri: lb://SERVICE1
+#          predicates:
+#           - Path=/service1/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: order-service
+#                fallbackuri: forward:/orderFallBack
+#        - id: payment-service
+#          uri: lb://SERVICE2
+#          predicates:
+#          - Path=/service2/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: payment-service
+#                fallbackuri: forward:/paymentFallback
+#
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#  instance:
+#    instance-id: ${spring.application.name}-${random.int}
+#    hostname: localhost

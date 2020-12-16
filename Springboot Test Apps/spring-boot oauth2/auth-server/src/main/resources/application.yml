@@ -1,0 +1,17 @@
+server:
+  port: 8090
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/auth_server_db?createDatabaseIfNotExist=true
+    username: root
+    password: 1qaz2wsx#
+    initialization-mode: always
+
+security:
+  oauth2:
+    authorization:
+      check_token_access: permitAll
